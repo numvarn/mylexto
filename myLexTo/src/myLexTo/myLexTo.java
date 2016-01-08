@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.Vector;
 
 /**
@@ -19,8 +20,14 @@ import java.util.Vector;
  */
 public class myLexTo {
     
+    private static Hashtable config = new Hashtable();
+    
     public static void main(String args[]) throws IOException {
         if (args.length > 0) {
+            /* Read Config File*/
+            ReadConfig rconfig = new ReadConfig();
+            config = rconfig.read();
+            
             String baseDirectory = args[0];
             String targetDirectory = baseDirectory + "/lexto";
             String textDirectory = targetDirectory + "/text";
@@ -64,8 +71,9 @@ public class myLexTo {
             }
 
             /* Create LexTo instance*/
-            LongLexTo tokenizer = new LongLexTo(new File("/Users/phisan/ResearchCode/thaiword/myLexTo/src/myLexTo/lexitron.txt"));
-            File unknownFile = new File("/Users/phisan/ResearchCode/thaiword/myLexTo/src/myLexTo/unknown.txt");
+            LongLexTo tokenizer = new LongLexTo(new File((String) config.get("lexitron")));
+            File unknownFile = new File((String) config.get("herblist"));
+            
             if (unknownFile.exists()) {
                 tokenizer.addDict(unknownFile);
             }
