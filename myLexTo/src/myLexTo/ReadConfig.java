@@ -40,9 +40,13 @@ public class ReadConfig {
                 JSONObject item = arrobj.getJSONObject(i);
                 String lexitron = item.getString("lexitron");
                 String herblist = item.getString("herblist");
+                String properties = item.getString("properties");
+                String stopwords = item.getString("stopwords");
 
                 config.put("lexitron", lexitron);
                 config.put("herblist", herblist);
+                config.put("properties", properties);
+                config.put("stopwords", stopwords);
             }
         } catch (FileNotFoundException | JSONException ex) {
             Logger.getLogger(ReadConfig.class.getName()).log(Level.SEVERE, null, ex);

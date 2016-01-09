@@ -72,10 +72,29 @@ public class myLexTo {
 
             /* Create LexTo instance*/
             LongLexTo tokenizer = new LongLexTo(new File((String) config.get("lexitron")));
-            File unknownFile = new File((String) config.get("herblist"));
+            File herblist = new File((String) config.get("herblist"));
+            File properties = new File((String) config.get("properties"));
+            File stopwords = new File((String) config.get("stopwords"));
             
-            if (unknownFile.exists()) {
-                tokenizer.addDict(unknownFile);
+            if (herblist.exists()) {
+                tokenizer.addDict(herblist);
+            }else {
+                System.out.println("Herb name list is not exits !!");
+                System.exit(0);
+            }
+            
+            if (properties.exists()) {
+                tokenizer.addDict(properties);
+            } else {
+                System.out.println("Properties list is not exitst !!");
+                System.exit(0);
+            }
+            
+            if (stopwords.exists()) {
+                tokenizer.addDict(stopwords);
+            } else {
+                System.out.println("Stop words list is not exitst !!");
+                System.exit(0);
             }
 
             final File folder = new File(baseDirectory);
