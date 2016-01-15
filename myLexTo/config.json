@@ -3,6 +3,7 @@
     "lexitron" : "/Users/phisan/ResearchCode/thaiword/myLexTo/dictionary/lexitron.txt",
     "herblist" : "/Users/phisan/ResearchCode/thaiword/myLexTo/dictionary/herblist.txt",
     "properties" : "/Users/phisan/ResearchCode/thaiword/myLexTo/dictionary/properties.txt",
-    "stopwords" : "/Users/phisan/ResearchCode/thaiword/myLexTo/dictionary/stopwords.txt"
+    "stopwords" : "/Users/phisan/ResearchCode/thaiword/myLexTo/dictionary/stopwords.txt",
+    "symptoms" : "/Users/phisan/ResearchCode/thaiword/myLexTo/dictionary/symptoms.txt"
   }
 ]

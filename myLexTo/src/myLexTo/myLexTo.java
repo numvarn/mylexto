@@ -75,6 +75,7 @@ public class myLexTo {
             File herblist = new File((String) config.get("herblist"));
             File properties = new File((String) config.get("properties"));
             File stopwords = new File((String) config.get("stopwords"));
+            File symptoms = new File((String) config.get("symptoms"));
             
             if (herblist.exists()) {
                 tokenizer.addDict(herblist);
@@ -92,6 +93,13 @@ public class myLexTo {
             
             if (stopwords.exists()) {
                 tokenizer.addDict(stopwords);
+            } else {
+                System.out.println("Stop words list is not exitst !!");
+                System.exit(0);
+            }
+            
+            if (symptoms.exists()) {
+                tokenizer.addDict(symptoms);
             } else {
                 System.out.println("Stop words list is not exitst !!");
                 System.exit(0);
